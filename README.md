@@ -29,12 +29,25 @@ sudo apt install make gcc qt5-default qtmultimedia5-dev libogg-dev libopus-dev l
 
 # Building
 
-Building an all-in-one version is as easy as compiling the main Qt project:
+> Building an all-in-one version is as easy as compiling the main Qt project:
 
 ```bash
 find ./ -name '*.ts' -exec lrelease {} \;
 qmake ultracopier.pro
 make -j$(nproc)
+```
+
+> Building using **makedeb**
+
+```bash
+mkdir ultrakafir && cd ultrakafir
+curl https://raw.githubusercontent.com/SantriKode/Ultrakafir/master/PKGBUILD -o PKGBUILD
+makedeb -s
+```
+
+> Installing deb files
+```bash
+sudo dpkg -i ultracopier-2.x.x.x-1_amd64.deb
 ```
 
 # Run
